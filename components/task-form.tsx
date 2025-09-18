@@ -9,9 +9,7 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
-import { Calendar } from "./ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import { CalendarIcon, Plus } from "lucide-react"
+import { Plus } from "lucide-react"
 import { format, startOfDay } from "date-fns"
 
 export function TaskForm() {
@@ -22,8 +20,7 @@ export function TaskForm() {
 
   const [title, setTitle] = useState("")
   const [selectedMember, setSelectedMember] = useState("")
-  const [dueDate, setDueDate] = useState<Date>()
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+  const [dueDate, setDueDate] = useState<string>("") // store as yyyy-MM-dd string
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,7 +31,7 @@ export function TaskForm() {
         title,
         assignedTo: selectedMember,
         assignedBy: currentUser,
-        dueDate: format(dueDate, "yyyy-MM-dd"),
+        dueDate,
       })
     )
 
@@ -50,8 +47,11 @@ export function TaskForm() {
 
     setTitle("")
     setSelectedMember("")
-    setDueDate(undefined)
+    setDueDate("")
   }
+
+  // min date for input
+  const today = format(new Date(), "yyyy-MM-dd")
 
   return (
     <Card>
@@ -99,34 +99,16 @@ export function TaskForm() {
           </div>
 
           {/* Due Date */}
-          <div className="space-y-2 relative">
-            <Label>Due Date</Label>
-            <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal"
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {dueDate ? format(dueDate, "PPP") : "Select due date"}
-                </Button>
-              </PopoverTrigger>
-
-              <PopoverContent className="w-[320px] p-4" align="start" side="bottom">
-                <Calendar
-                  mode="single"
-                  selected={dueDate}
-                  onSelect={(date) => {
-                    if (date) {
-                      setDueDate(date)
-                      setIsCalendarOpen(false) // closes on selection
-                    }
-                  }}
-                  disabled={(date) => startOfDay(date) < startOfDay(new Date())}
-                />
-              </PopoverContent>
-            </Popover>
+          <div className="space-y-2">
+            <Label htmlFor="due-date">Due Date</Label>
+            <Input
+              id="due-date"
+              type="date"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+              min={today}
+              required
+            />
           </div>
 
           {/* Submit */}
