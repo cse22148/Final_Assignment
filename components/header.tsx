@@ -20,7 +20,7 @@ export function Header() {
   return (
     <header className="bg-card border-b border-border px-6 py-4">
       <div className="flex items-center justify-between">
-        {/* Left side - Logo and title */}
+        
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -50,9 +50,9 @@ export function Header() {
           </Badge>
         </div>
 
-        {/* Right side - User info, dark mode toggle, and role toggle */}
+        
         <div className="flex items-center gap-4">
-          {/* Dark Mode Toggle */}
+         
           <DarkModeToggle />
 
           {/* Role Toggle */}
