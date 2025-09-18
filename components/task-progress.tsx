@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
@@ -11,8 +11,10 @@ import { Label } from "./ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { Calendar } from "./ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import { Progress } from "./ui/progress"   // ✅ Import Progress!
 import { CalendarIcon, Plus, Minus, CheckCircle } from "lucide-react"
 import { format, startOfDay, isAfter, parseISO } from "date-fns"
+import { Badge } from "./ui/badge"
 
 export function TaskForm() {
   const dispatch = useAppDispatch()
@@ -52,15 +54,20 @@ export function TaskForm() {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Plus className="w-5 h-5" />
-          Assign New Task
+          <Plus className="w-5 h-5" /> Assign New Task
         </CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="task-title">Task Title</Label>
-            <Input id="task-title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter task description..." required />
+            <Input
+              id="task-title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Enter task description..."
+              required
+            />
           </div>
 
           <div className="space-y-2">
@@ -108,8 +115,7 @@ export function TaskForm() {
           </div>
 
           <Button type="submit" className="w-full">
-            <Plus className="w-4 h-4 mr-2" />
-            Assign Task
+            <Plus className="w-4 h-4 mr-2" /> Assign Task
           </Button>
         </form>
       </CardContent>
@@ -117,34 +123,37 @@ export function TaskForm() {
   )
 }
 
-export function TaskProgress({ task }: { task: any }) {
+ export function TaskProgress({ task }: { task: any }) {
   const dispatch = useAppDispatch()
+
   const handleProgressChange = (change: number) => {
     const newProgress = Math.max(0, Math.min(100, task.progress + change))
     dispatch(updateTaskProgress({ taskId: task.id, progress: newProgress }))
   }
 
-  const isOverdue = isAfter(new Date(), parseISO(task.dueDate)) && !task.completed
   const dueDate = parseISO(task.dueDate)
+  const isOverdue = isAfter(new Date(), dueDate) && !task.completed
 
   return (
     <Card className={`${task.completed ? "opacity-75" : ""} ${isOverdue ? "border-destructive" : ""}`}>
       <CardContent className="p-4 space-y-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <h3 className={`font-medium ${task.completed ? "line-through text-muted-foreground" : "text-foreground"}`}>{task.title}</h3>
+            <h3 className={`font-medium ${task.completed ? "line-through text-muted-foreground" : "text-foreground"}`}>
+              {task.title}
+            </h3>
             <p className="text-sm text-muted-foreground">Assigned by: {task.assignedBy}</p>
           </div>
+
           {task.completed && (
-            <Badge variant="default" className="bg-green-500 text-white">
-              <CheckCircle className="w-3 h-3 mr-1" />
-              Completed
+            <Badge variant="default" className="bg-green-500 text-white flex items-center gap-1">
+              <CheckCircle className="w-3 h-3" /> Completed
             </Badge>
           )}
         </div>
 
         <div className="flex items-center gap-2">
-          <Calendar className="w-4 h-4 text-muted-foreground" />
+          <CalendarIcon className="w-4 h-4 text-muted-foreground" />
           <span className={`text-sm ${isOverdue ? "text-destructive font-medium" : "text-muted-foreground"}`}>
             Due: {format(dueDate, "MMM dd, yyyy")}
             {isOverdue && " (Overdue)"}
