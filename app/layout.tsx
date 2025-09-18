@@ -10,7 +10,7 @@ import { Suspense } from "react"
 export const metadata: Metadata = {
   title: "Team Pulse Dashboard",
   description: "Productivity monitoring tool for internal teams",
-  generator: "v0.app",
+  generator: "pulse-dashboard",
 }
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {/* Wrapped children with Redux Provider and Suspense boundary */}
+       
         <Suspense fallback={<div>Loading...</div>}>
           <Providers>{children}</Providers>
         </Suspense>
