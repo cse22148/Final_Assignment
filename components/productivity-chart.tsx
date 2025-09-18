@@ -9,7 +9,7 @@ import { TrendingUp } from "lucide-react"
 export function ProductivityChart() {
   const members = useAppSelector((state) => state.members.members)
 
-  console.log("[v0] Members data:", members)
+  console.log("Members data:", members)
 
   const statusCounts = members.reduce(
     (acc, member) => {
@@ -20,7 +20,7 @@ export function ProductivityChart() {
     {} as Record<string, number>,
   )
 
-  console.log("[v0] Status counts:", statusCounts)
+  console.log("Status counts:", statusCounts)
 
   const chartData = Object.entries(statusCounts).map(([status, count]) => ({
     name: status,
@@ -28,7 +28,7 @@ export function ProductivityChart() {
     fill: getStatusColor(status),
   }))
 
-  console.log("[v0] Chart data:", chartData)
+  console.log("Chart data:", chartData)
 
   const chartConfig = {
     value: {
