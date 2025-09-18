@@ -47,19 +47,11 @@ This project can be deployed easily on:
 
 Vercel (recommended for Next.js)
 
-Netlify
-
-Render
+ 
 
 👨‍💻 Author
 
 Developed by Chanchal Teotia
 
 
----
-
-✅ This is your **final README.md** in one single block.  
-
-Do you want me to also add **badges (Next.js, Tailwind, Redux, TypeScript, Vercel)** at the top so it looks professional on GitHub?
-
-You said:
+ 
