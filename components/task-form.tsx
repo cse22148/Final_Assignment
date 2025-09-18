@@ -1,7 +1,6 @@
-"use client"
+'use client'
 
 import type React from "react"
-
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { addTask } from "../redux/slices/tasksSlice"
@@ -14,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Calendar } from "./ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { CalendarIcon, Plus } from "lucide-react"
-import { format } from "date-fns"
+import { format, startOfDay } from "date-fns"
 
 export function TaskForm() {
   const dispatch = useAppDispatch()
@@ -29,30 +28,22 @@ export function TaskForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
     if (!title || !selectedMember || !dueDate) return
-
-    // Add task to Redux store
     dispatch(
       addTask({
         title,
         assignedTo: selectedMember,
         assignedBy: currentUser,
         dueDate: format(dueDate, "yyyy-MM-dd"),
-      }),
+      })
     )
-
-    // Update member's active task count
-    const memberTasks = tasks.filter((task) => task.assignedTo === selectedMember && !task.completed).length + 1 // +1 for the new task
-
+    const memberTasks = tasks.filter((task) => task.assignedTo === selectedMember && !task.completed).length + 1
     dispatch(
       updateActiveTasks({
         memberId: selectedMember,
         count: memberTasks,
-      }),
+      })
     )
-
-    // Reset form
     setTitle("")
     setSelectedMember("")
     setDueDate(undefined)
@@ -107,15 +98,17 @@ export function TaskForm() {
                   {dueDate ? format(dueDate, "PPP") : "Select due date"}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+              <PopoverContent className="w-[300px] p-4" align="start">
                 <Calendar
                   mode="single"
                   selected={dueDate}
                   onSelect={(date) => {
-                    setDueDate(date)
-                    setIsCalendarOpen(false)
+                    if (date) {
+                      setDueDate(date)
+                      setIsCalendarOpen(false)
+                    }
                   }}
-                  disabled={(date) => date < new Date()}
+                  disabled={(date) => date < startOfDay(new Date())}
                   initialFocus
                 />
               </PopoverContent>
