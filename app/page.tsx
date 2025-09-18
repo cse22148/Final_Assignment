@@ -9,7 +9,7 @@ import { TeamMemberDashboard } from "../components/team-member-dashboard"
 export default function Dashboard() {
   const currentRole = useAppSelector((state) => state.role.currentRole)
 
-  // Enable auto-reset functionality
+  
   useAutoReset()
 
   return (
