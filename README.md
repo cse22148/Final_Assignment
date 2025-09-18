@@ -71,7 +71,3 @@ pnpm start
 
 ![Screenshot 4](./screenshot/4.png)
 
-![Member View](./screenshot/3.png)
-
-### 📈 Task Progress
-![Task Progress](./screenshot/4.png)
