@@ -1,35 +1,55 @@
- 
+# 📊 Team Pulse Dashboard
 
-## 📂 Project Structure
-app/                # Next.js App Router pages and layouts  
-components/         # Reusable UI components (Shadcn UI + custom)  
-hooks/              # Custom React hooks  
-lib/                # Utility functions  
-redux/              # Redux Toolkit store and slices  
-public/             # Static assets (images, icons, logos)  
-styles/             # Global styles  
+A role-based productivity monitoring dashboard built with **React, Redux Toolkit, and TailwindCSS**.  
+It enables **Team Leads** to monitor team members, assign tasks, and track productivity, while **Team Members** can update their status and manage progress on tasks.  
+
+---
+
+## 🚀 Project Overview
+The **Team Pulse Dashboard** provides a clean and intuitive interface for internal team productivity monitoring.  
+
+- **Team Lead View**:  
+  - Monitor member statuses (Working · Break · Meeting · Offline).  
+  - Assign tasks with due dates.  
+  - Filter/sort members by status and active tasks.  
+
+- **Team Member View**:  
+  - Update status in real-time.  
+  - View assigned tasks with due dates.  
+  - Track progress with interactive progress bars.  
+
+All state management is handled with **Redux Toolkit** for predictable and scalable application flow.  
+
+---
 
 ## ⚡ Tech Stack
-- Next.js 15 (App Router)  
-- React 18  
-- TypeScript  
-- TailwindCSS + Shadcn/UI  
-- Redux Toolkit  
-- pnpm (package manager)  
-- PostCSS  
+- **React 18**  
+- **Redux Toolkit**  
+- **TailwindCSS** (with optional Shadcn/UI components)  
+- **Next.js 15 (App Router)** for project structure & routing  
+- **TypeScript** for type safety  
+- **pnpm** (preferred package manager, npm supported)  
+- **PostCSS** for style processing  
+- **Optional**: Recharts/Chart.js for visualizations  
 
-## 🚀 Getting Started
-### 1️⃣ Clone the repository
+---
+
+## 🛠️ Setup Instructions
+
+1️⃣ **Clone the repository**
 ```bash
 git clone https://github.com/cse22148/Final_Assignment.git
 cd Final_Assignment
+
 2️⃣ Install dependencies
+
 pnpm install
+# or
+npm install
 
-
-(You can also use npm install if you prefer)
 
 3️⃣ Run the development server
+
 pnpm dev
 
 
@@ -37,21 +57,9 @@ Now open http://localhost:3000
  in your browser.
 
 4️⃣ Build for production
+
 pnpm build
 pnpm start
 
+📸 Screenshots / Demo
 
-🔧 Deployment
-
-This project can be deployed easily on:
-
-Vercel (recommended for Next.js)
-
- 
-
-👨‍💻 Author
-
-Developed by Chanchal Teotia
-
-
- 
