@@ -1,5 +1,4 @@
-# AppVersal - Team Management Dashboard
-A modern **team management dashboard** built with **Next.js 15**, **TypeScript**, **TailwindCSS**, and **Redux Toolkit**. It provides features for task tracking, member management, productivity visualization, and role-based dashboards.
+ 
 
 ## 📂 Project Structure
 app/                # Next.js App Router pages and layouts  
