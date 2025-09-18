@@ -1,6 +1,5 @@
 'use client'
 
-import type React from "react"
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { addTask } from "../redux/slices/tasksSlice"
@@ -24,11 +23,11 @@ export function TaskForm() {
   const [title, setTitle] = useState("")
   const [selectedMember, setSelectedMember] = useState("")
   const [dueDate, setDueDate] = useState<Date>()
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!title || !selectedMember || !dueDate) return
+
     dispatch(
       addTask({
         title,
@@ -37,13 +36,17 @@ export function TaskForm() {
         dueDate: format(dueDate, "yyyy-MM-dd"),
       })
     )
-    const memberTasks = tasks.filter((task) => task.assignedTo === selectedMember && !task.completed).length + 1
+
+    const memberTasks =
+      tasks.filter((task) => task.assignedTo === selectedMember && !task.completed).length + 1
+
     dispatch(
       updateActiveTasks({
         memberId: selectedMember,
         count: memberTasks,
       })
     )
+
     setTitle("")
     setSelectedMember("")
     setDueDate(undefined)
@@ -57,8 +60,10 @@ export function TaskForm() {
           Assign New Task
         </CardTitle>
       </CardHeader>
+
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Task Title */}
           <div className="space-y-2">
             <Label htmlFor="task-title">Task Title</Label>
             <Input
@@ -70,6 +75,7 @@ export function TaskForm() {
             />
           </div>
 
+          {/* Member Select */}
           <div className="space-y-2">
             <Label htmlFor="member-select">Assign to Member</Label>
             <Select value={selectedMember} onValueChange={setSelectedMember} required>
@@ -81,7 +87,9 @@ export function TaskForm() {
                   <SelectItem key={member.id} value={member.id}>
                     <div className="flex items-center gap-2">
                       <span>{member.name}</span>
-                      <span className="text-xs text-muted-foreground">({member.activeTasks} active tasks)</span>
+                      <span className="text-xs text-muted-foreground">
+                        ({member.activeTasks} active tasks)
+                      </span>
                     </div>
                   </SelectItem>
                 ))}
@@ -89,32 +97,31 @@ export function TaskForm() {
             </Select>
           </div>
 
-          <div className="space-y-2">
+         
+          <div className="space-y-2 relative">
             <Label>Due Date</Label>
-            <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+            <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" className="w-full justify-start text-left font-normal bg-transparent">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start text-left font-normal"
+                >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {dueDate ? format(dueDate, "PPP") : "Select due date"}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[300px] p-4" align="start">
+              <PopoverContent className="w-[300px] p-4">
                 <Calendar
                   mode="single"
                   selected={dueDate}
-                  onSelect={(date) => {
-                    if (date) {
-                      setDueDate(date)
-                      setIsCalendarOpen(false)
-                    }
-                  }}
-                  disabled={(date) => date < startOfDay(new Date())}
-                  initialFocus
+                  onSelect={(date) => date && setDueDate(date)}
+                  disabled={(date) => startOfDay(date) < startOfDay(new Date())}
                 />
               </PopoverContent>
             </Popover>
           </div>
 
+        
           <Button type="submit" className="w-full">
             <Plus className="w-4 h-4 mr-2" />
             Assign Task
