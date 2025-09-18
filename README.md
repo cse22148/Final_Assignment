@@ -63,3 +63,16 @@ pnpm start
 
 📸 Screenshots / Demo
 
+## 📸 Screenshots
+
+### 👩‍💼 Team Lead Dashboard
+![Lead View](./screenshot/1.png)
+
+### 📝 Task Assignment
+![Task Form](./screenshot/2.png)
+
+### 👨‍💻 Member Dashboard
+![Member View](./screenshot/3.png)
+
+### 📈 Task Progress
+![Task Progress](./screenshot/4.png)
