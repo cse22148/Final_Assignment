@@ -23,6 +23,7 @@ export function TaskForm() {
   const [title, setTitle] = useState("")
   const [selectedMember, setSelectedMember] = useState("")
   const [dueDate, setDueDate] = useState<Date>()
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -97,12 +98,13 @@ export function TaskForm() {
             </Select>
           </div>
 
-         
+          {/* Due Date */}
           <div className="space-y-2 relative">
             <Label>Due Date</Label>
-            <Popover>
+            <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
               <PopoverTrigger asChild>
                 <Button
+                  type="button"
                   variant="outline"
                   className="w-full justify-start text-left font-normal"
                 >
@@ -110,18 +112,24 @@ export function TaskForm() {
                   {dueDate ? format(dueDate, "PPP") : "Select due date"}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[300px] p-4">
+
+              <PopoverContent className="w-[320px] p-4" align="start" side="bottom">
                 <Calendar
                   mode="single"
                   selected={dueDate}
-                  onSelect={(date) => date && setDueDate(date)}
+                  onSelect={(date) => {
+                    if (date) {
+                      setDueDate(date)
+                      setIsCalendarOpen(false) // closes on selection
+                    }
+                  }}
                   disabled={(date) => startOfDay(date) < startOfDay(new Date())}
                 />
               </PopoverContent>
             </Popover>
           </div>
 
-        
+          {/* Submit */}
           <Button type="submit" className="w-full">
             <Plus className="w-4 h-4 mr-2" />
             Assign Task
