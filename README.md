@@ -61,19 +61,10 @@ Now open http://localhost:3000
 pnpm build
 pnpm start
 
-📸 Screenshots / Demo
-
-### 1
-![1](screenshot/1.png)
-
-### 2
-![2](screenshot/2.png)
-
-### 3
-![3](screenshot/3.png)
-
-### 4
-![4](screenshot/4.png)
+![1](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/1.png)
+![2](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/2.png)
+![3](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/3.png)
+![4](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/4.png)
 
 ## 👨‍💻 Author
 
