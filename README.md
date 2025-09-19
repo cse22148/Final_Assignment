@@ -64,17 +64,16 @@ pnpm start
 
 ## 📸 Project Screenshots
 
-### Dashboard View
-![Dashboard Screenshot](./screenshot/1.png)
+<p align="center">
+  <img src="./screenshot/1.png" alt="Screenshot 1" width="45%"/>
+  <img src="./screenshot/2.png" alt="Screenshot 2" width="45%"/>
+</p>
 
-### Analytics View
-![Analytics Screenshot](./screenshot/2.png)
+<p align="center">
+  <img src="./screenshot/3.png" alt="Screenshot 3" width="45%"/>
+  <img src="./screenshot/4.png" alt="Screenshot 4" width="45%"/>
+</p>
 
-### Team View
-![Team Screenshot](./screenshot/3.png)
-
-### Settings View
-![Settings Screenshot](./screenshot/4.png)
 
 ## 👨‍💻 Author
 
