@@ -62,17 +62,10 @@ pnpm build
 pnpm start
 
 
-## 📸 Project Screenshots
+## 📸 Screenshots
 
-<p align="center">
-  <img src="./screenshot/1.png" alt="Screenshot 1" width="45%"/>
-  <img src="./screenshot/2.png" alt="Screenshot 2" width="45%"/>
-</p>
+All project screenshots are available in the [screenshot](./screenshot) folder.
 
-<p align="center">
-  <img src="./screenshot/3.png" alt="Screenshot 3" width="45%"/>
-  <img src="./screenshot/4.png" alt="Screenshot 4" width="45%"/>
-</p>
 
 
 ## 👨‍💻 Author
