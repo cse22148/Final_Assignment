@@ -63,25 +63,17 @@ pnpm start
 
 📸 Screenshots / Demo
 
+### 1
+![1](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/1.png)
 
+### 2
+![2](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/2.png)
 
-<p align="center">
+### 3
+![3](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/3.png)
 
-  <img src="https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/01.png" alt="01" width="45%"/>
-
-  <img src="https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/02.png" alt="02" width="45%"/>
-
-</p>
-
-
-
-<p align="center">
-
-  <img src="https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/03.png" alt="03" width="45%"/>
-
-  <img src="https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/04.png" alt="04" width="45%"/>
-
-</p>
+### 4
+![4](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshots/4.png)
 
 ## 👨‍💻 Author
 
