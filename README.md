@@ -64,16 +64,16 @@ pnpm start
 📸 Screenshots / Demo
 
 ### 1
-![1](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/1.png)
+![1](screenshots/1.png)
 
 ### 2
-![2](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/2.png)
+![2](screenshots/2.png)
 
 ### 3
-![3](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/3.png)
+![3](screenshots/3.png)
 
 ### 4
-![4](https://raw.githubusercontent.com/cse22148/Pulse-dashboard_Assignment/main/screenshot/4.png)
+![4](screenshots/4.png)
 
 ## 👨‍💻 Author
 
