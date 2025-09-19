@@ -61,10 +61,20 @@ Now open http://localhost:3000
 pnpm build
 pnpm start
 
-![Screenshot 1](screenshot/1.png)
-![Screenshot 2](screenshot/2.png)
-![Screenshot 3](screenshot/3.png)
-![Screenshot 4](screenshot/4.png)
+
+## 📸 Project Screenshots
+
+### Dashboard View
+![Dashboard Screenshot](./screenshot/1.png)
+
+### Analytics View
+![Analytics Screenshot](./screenshot/2.png)
+
+### Team View
+![Team Screenshot](./screenshot/3.png)
+
+### Settings View
+![Settings Screenshot](./screenshot/4.png)
 
 ## 👨‍💻 Author
 
