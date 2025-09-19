@@ -63,11 +63,12 @@ pnpm start
 
 📸 Screenshots / Demo
 
-![Screenshot 1](./screenshot/1.png)
+ ## 📸 Screenshots / Demo
 
-![Screenshot 2](./screenshot/2.png)
+![Dashboard Screenshot](./public/assets/screenshot.png)
+ ---
 
-![Screenshot 3](./screenshot/3.png)
+## 👨‍💻 Author
 
-![Screenshot 4](./screenshot/4.png)
+Made with ❤️ by **Chanchal Teotia**
 
