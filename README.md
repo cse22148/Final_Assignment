@@ -64,16 +64,16 @@ pnpm start
 📸 Screenshots / Demo
 
 ### 1
-![1](screenshots/1.png)
+![1](screenshot/1.png)
 
 ### 2
-![2](screenshots/2.png)
+![2](screenshot/2.png)
 
 ### 3
-![3](screenshots/3.png)
+![3](screenshot/3.png)
 
 ### 4
-![4](screenshots/4.png)
+![4](screenshot/4.png)
 
 ## 👨‍💻 Author
 
